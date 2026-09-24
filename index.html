@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angga Ferdani</title>
+<meta name="description" content="Angga Ferdani — Full Stack Web Developer" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- three.js di-vendor ke assets/vendor/ supaya preview 3D tetap jalan tanpa internet.
+     Importmap ini harus berada sebelum module script mana pun yang memakai specifier di bawah. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "./assets/vendor/three/three.module.min.js",
+    "three/addons/": "./assets/vendor/three/jsm/"
+  }
+}
+</script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'] },
+        colors: { ink: '#0a0a0a', paper: '#e7e7e7', muted: '#8a8a8a' },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #000; color: #e7e7e7; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #e7e7e7; color: #000; }
+
+  /* Are.na style list markers */
+  .list-alpha { list-style: lower-alpha; }
+  .list-num { list-style: decimal; }
+  .list-alpha > li::marker,
+  .list-num > li::marker { color: #8a8a8a; }
+
+  .rule { border-top: 1px solid #262626; }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .plus-v { transform: rotate(90deg); opacity: 0; }
+  details[open] > summary .chevron { transform: rotate(180deg); }
+
+  /* Selector-nya class saja, bukan a.link, supaya elemen non-anchor bisa ikut memakainya */
+  .link { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #4a4a4a; }
+  .link:hover { text-decoration-color: #e7e7e7; }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Page container: content is centered -->
+  <div class="mx-auto w-full max-w-[1500px] px-6 sm:px-10">
+    <div class="mx-auto w-full max-w-[700px]">
+
+      <!-- ══════════════════ ABOUT ══════════════════ -->
+      <section id="about" class="pt-16 sm:pt-24 lg:pt-28">
+        <h1 class="text-xl sm:text-2xl font-bold tracking-tight">@anggaferdani</h1>
+        <p class="mt-6 max-w-[62ch] text-lg sm:text-xl leading-relaxed">
+          I am <strong class="font-bold">Angga Ferdani</strong>, a Full Stack Web Developer experienced in building
+          end-to-end web applications, from frontend and backend development to databases and deployment. I am
+          passionate about technology and digital product development, and I continuously improve my skills by
+          exploring new technologies and approaches.
+        </p>
+
+        <!-- Contact -->
+        <ul id="contact" class="mt-8 max-w-[52ch] space-y-1 text-lg sm:text-xl leading-relaxed">
+          <li><a class="link" href="https://wa.me/6281290573256" target="_blank" rel="noopener">+62 81290573256</a></li>
+          <li><a class="link" href="mailto:ferdaniang@gmail.com">ferdaniang@gmail.com</a></li>
+          <li><a class="link" href="https://linkedin.com/in/anggaferdani" target="_blank" rel="noopener">linkedin.com/in/anggaferdani</a></li>
+          <li><a class="link" href="https://github.com/anggaferdani" target="_blank" rel="noopener">github.com/anggaferdani</a></li>
+        </ul>
+      </section>
+
+      <!-- ══════════════════ WORK EXPERIENCE ══════════════════ -->
+      <section id="experience" class="pt-20 sm:pt-28">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Work Experience</h2>
+
+        <h3 class="mt-8 text-lg sm:text-xl font-bold">Spero Mahakarya Nusantara</h3>
+
+        <ol class="list-num mt-6 ml-6 space-y-8">
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">Full Stack Web Developer — Full Time</p>
+            <p class="mt-1 text-base sm:text-lg text-muted">Mar 2023 – Present</p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Develop end-to-end web applications and digital systems across frontend, backend, databases, and
+              deployment, including integrations with APIs, third-party services, and IoT devices. Experienced in
+              optimizing large-scale data management through database indexing and query performance improvements.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">Web Developer — Internship</p>
+            <p class="mt-1 text-base sm:text-lg text-muted">Sep 2022 – Mar 2023</p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Contributed to web application development across frontend, backend, and deployment, while also
+              handling bug fixes and application maintenance.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ══════════════════ PROJECTS ══════════════════ -->
+      <section id="projects" class="pt-20 sm:pt-28">
+        <details open>
+          <summary class="flex items-center gap-2">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Projects</h2>
+            <svg viewBox="0 0 24 24" class="chevron h-5 w-5 text-muted transition-transform" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+
+          <ol id="professional-projects" class="list-num mt-8 ml-6 space-y-14">
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Empat Pilar MPR RI Competition System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a web-based competition system for Empat Pilar MPR RI featuring real-time communication,
+              IoT device integration, offline mode, and synchronized buzzer buttons and scores.
+            </p>
+
+            <!-- Gallery: gambar tampil utuh, tanpa crop — tingginya mengikuti rasio asli masing-masing.
+                 items-start supaya grid tidak merentang gambar agar setinggi barisnya.
+                 File yang tidak ada di assets/projects/ dihapus dari DOM saat load. -->
+            <div class="mt-5 grid grid-cols-3 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/empat-pilar-mpr-0001.jpg" loading="lazy"
+                   alt="Quiz Management System — competition screen" />
+              <img class="js-shot w-full border border-white" src="assets/projects/empat-pilar-mpr-0002.jpg" loading="lazy"
+                   alt="Quiz Management System — buzzer panel" />
+              <img class="js-shot w-full border border-white" src="assets/projects/empat-pilar-mpr-0003.jpg" loading="lazy"
+                   alt="Quiz Management System — question management" />
+              <img class="js-shot w-full border border-white" src="assets/projects/empat-pilar-mpr-0004.jpg" loading="lazy"
+                   alt="Quiz Management System — scoreboard" />
+              <img class="js-shot w-full border border-white" src="assets/projects/empat-pilar-mpr-0005.jpg" loading="lazy"
+                   alt="Quiz Management System — IoT device" />
+              <img class="js-shot w-full border border-white" src="assets/projects/empat-pilar-mpr-0006.jpg" loading="lazy"
+                   alt="Quiz Management System — IoT device" />
+            </div>
+          </li>
+          <li class="pl-2" data-project-kind="personal">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              <a class="link" href="https://github.com/anggaferdani/git-manager" target="_blank" rel="noopener">Git Manager</a>
+              <!-- aria-hidden: judulnya sendiri sudah berupa anchor, jadi ikon ini murni penanda visual -->
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a tool for managing and switching between Git accounts on a single computer, enabling users
+              to commit and push with different account configurations.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/git-manager.png" loading="lazy"
+                   alt="Git Manager — Git account dashboard with Set Active, Edit, and Delete buttons" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Persona UMKM
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed an AI-powered platform that helps MSMEs define their brand identity and develop products by
+              automatically generating trend-aware content, tags, and descriptions.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/persona-umkm.jpg" loading="lazy"
+                   alt="Persona UMKM — AI Generate Content page" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              <a class="link" href="https://onelitokoi.id/" target="_blank" rel="noopener">Onelito Koi</a>
+              <!-- Ikon globe: r=9, bukan 10, supaya goresan setebal 2,5 tidak terpotong tepi viewBox.
+                   aria-hidden karena judulnya sendiri sudah berupa anchor. -->
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18" />
+                <path d="M12 3a13.5 13.5 0 0 1 3.6 9 13.5 13.5 0 0 1-3.6 9 13.5 13.5 0 0 1-3.6-9A13.5 13.5 0 0 1 12 3z" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a koi fish e-commerce website with payment gateway, WhatsApp API, and shipping service
+              integrations. The system supports fish and feed purchases, online auctions, event lotteries, and
+              real-time data updates.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/onelito-koi.png" loading="lazy"
+                   alt="Onelito Koi — online store homepage" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              <a class="link" href="https://github.com/anggaferdani/onelito-koi-live-auction" target="_blank" rel="noopener">Onelito Koi Live Auction</a>
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed an offline-based live auction system for koi fish auctions with real-time data synchronization.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              PAR Call Center
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a call center system for PT Prima Armada Raya to manage customer reports, complaints, and
+              service requests.
+            </p>
+
+            <div class="mt-5 grid grid-cols-2 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/call-center-par-0001.jpg" loading="lazy"
+                   alt="PAR Call Center — development documentation" />
+              <img class="js-shot w-full border border-white" src="assets/projects/call-center-par-0002.jpg" loading="lazy"
+                   alt="PAR Call Center — PT Prima Armada Raya call center team workspace" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Smart Attendance
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a location-based attendance system for PT Guna Cipta Kreasi that ensures employees can only
+              check in within a predefined location radius.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              <a class="link" href="https://holomoc.com/" target="_blank" rel="noopener">Holomoc Indonesia Company Profile</a>
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18" />
+                <path d="M12 3a13.5 13.5 0 0 1 3.6 9 13.5 13.5 0 0 1-3.6 9 13.5 13.5 0 0 1-3.6-9A13.5 13.5 0 0 1 12 3z" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed an SEO-optimized company profile website for PT Holomoc Indonesia.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/holomoc.png" loading="lazy"
+                   alt="Holomoc Indonesia — homepage featuring the Immersive Media Integrator headline" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Hangout Project
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed the MIXNETWORK web platform, providing the latest information on popular hangout spots such
+              as cafés, public spaces, and a variety of noteworthy events.
+            </p>
+
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Saranawisesa Properindo Company Profile &amp; E-Procurement
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a company profile and e-procurement website for PT Saranawisesa Properindo to present company
+              information, services, property projects, and procurement processes.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/saranawisesa.jpg" loading="lazy"
+                   alt="Saranawisesa Properindo — homepage featuring the Passion Perform Pride tagline" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Bank BTN Registration System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a registration system for Bank BTN's anniversary event with QR code-based registration and
+              attendee verification.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Battle Management System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a web-based battle management system featuring a real-time monitoring and control dashboard,
+              along with an interactive map for marking positions and tracking personnel.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/bms.jpg" loading="lazy"
+                   alt="Battle Management System — dashboard with an interactive map of Indonesia and position-marking tools" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Motion H2
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a distribution monitoring dashboard for PT Astra Honda Motor to centrally track and manage
+              distribution data. Optimized large-scale data processing through database indexing, improving search
+              and data retrieval speed and efficiency.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Reporting System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a reporting system for PT Mega Sarana Satelit to manage report data in a structured manner.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/mss.jpg" loading="lazy"
+                   alt="Reporting System — team development session in a meeting room" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Sarana Teknologi Komunikasi Company Profile
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a company profile website for PT Sarana Teknologi Komunikasi to showcase company information
+              and its services.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              UMKM Level Up Landing Page
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a landing page for KOMINFO's UMKM Level Up program as an information and promotional platform.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              School Facilities Management System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a school facilities management system to centrally manage facility data, maintenance, and usage.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <img class="js-shot w-full border border-white" src="assets/projects/school-facilities-management-system.jpg" loading="lazy"
+                   alt="School Facilities Management System — team development documentation" />
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Silatnas 2022 Registration System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed an attendee registration system for the Indonesian Rental Association's Silatnas 2022 event,
+              featuring registration and attendance verification.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              UMKM Monitoring Dashboard
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a dashboard for the Surakarta City Trade Office to centrally monitor and manage MSME data.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Sismamedikal Learning Management System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a learning management platform for PT Sismadi Mancorpindo supporting the management of
+              materials, learning activities, classes, and participants.
+            </p>
+          </li>
+          <li class="pl-2" data-project-kind="personal">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              3D Skull
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Created a 3D skull object while exploring the model's detailed form and structure.
+            </p>
+
+            <!-- Preview 3D: berputar sendiri, bisa diputar dengan seret, tanpa zoom.
+                 Tidak ada listener 'wheel' sehingga scroll halaman tidak pernah direbut —
+                 karena itu pula tidak perlu overlay instruksi. Canvas disisipkan skrip di bawah. -->
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <div class="shot-frame border border-white">
+                <div id="skull-3d" class="aspect-[4/3] w-full" role="img"
+                     aria-label="3D skull model that rotates automatically and can be rotated by dragging"></div>
+              </div>
+            </div>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Pelajar Digital Learning Management System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a learning management platform for PT Holomoc Indonesia supporting the management of
+              materials, learning activities, classes, and participants.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Indo Defence 2022 Expo &amp; Forum Registration System
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed an attendee registration system for the Indo Defence 2022 Expo &amp; Forum, featuring registration
+              and attendance verification.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Niaga Inti Kokoh Company Profile
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed a company profile website for PT Niaga Inti Kokoh to showcase company information, services,
+              and products.
+            </p>
+          </li>
+          <li class="pl-2">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Spero ERP &amp; Smart Attendance
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Developed integrated ERP and smart attendance systems for PT Spero Mahakarya Nusantara to support
+              operational management and employee attendance.
+            </p>
+          </li>
+          <li class="pl-2" data-project-kind="personal">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Roblox Motion Tracking
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Applied movement from video footage to a Roblox character using motion tracking and rigging, allowing
+              the character to mirror the movements captured in the video.
+            </p>
+
+            <!-- preload="metadata": hanya durasi/dimensi yang diambil saat load, bukan 4 MB videonya -->
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <!-- Border dipasang di pembungkus, bukan di elemen video: tingginya ikut rasio
+                   sumbernya dan sering jatuh di pecahan piksel, sehingga border 1px di sisi
+                   bawah bisa hilang saat dibulatkan browser. -->
+              <div class="shot-frame border border-white">
+                <video class="js-shot block w-full" src="assets/projects/roblox-motion-tracking.mp4"
+                       controls muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+          </li>
+          <li class="pl-2" data-project-kind="personal">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              <a class="link" href="https://github.com/anggaferdani/aquarium" target="_blank" rel="noopener">Web-Based 3D Aquarium Simulation</a>
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Built a web-based 3D aquarium simulation with animated fish models, environmental decorations, and
+              configuration options for aquarium materials and statistics.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <!-- Border dipasang di pembungkus, bukan di elemen video: tingginya ikut rasio
+                   sumbernya dan sering jatuh di pecahan piksel, sehingga border 1px di sisi
+                   bawah bisa hilang saat dibulatkan browser. -->
+              <div class="shot-frame border border-white">
+                <video class="js-shot block w-full" src="assets/projects/aquarium.mp4"
+                       controls muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+          </li>
+          <li class="pl-2" data-project-kind="personal">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Roblox Terrain Generation
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Experimented with procedural terrain generation in Roblox to automatically create customizable terrain
+              shapes and environments.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <!-- Border dipasang di pembungkus, bukan di elemen video: tingginya ikut rasio
+                   sumbernya dan sering jatuh di pecahan piksel, sehingga border 1px di sisi
+                   bawah bisa hilang saat dibulatkan browser. -->
+              <div class="shot-frame border border-white">
+                <video class="js-shot block w-full" src="assets/projects/roblox-terrain-generation.mp4"
+                       controls muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+          </li>
+          <li class="pl-2" data-project-kind="personal">
+            <p class="text-lg sm:text-xl font-bold leading-snug">
+              Procedural Inverse Kinematics
+              <svg viewBox="0 0 24 24" class="ml-1 inline-block h-6 w-6 align-middle text-white" fill="none"
+                   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                   role="img" aria-label="Private project">
+                <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+              </svg>
+            </p>
+            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
+              Experimented with procedural inverse kinematics for character animation in an FPS game to create more
+              dynamic and responsive movement.
+            </p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3">
+              <div class="shot-frame border border-white">
+                <video class="js-shot block w-full" src="assets/projects/inverse-kinematic.mp4"
+                       controls muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+          </li>
+          </ol>
+        </details>
+
+        <details open class="mt-14">
+          <summary class="flex items-center gap-2">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Personal Projects &amp; Experiments</h2>
+            <svg viewBox="0 0 24 24" class="chevron h-5 w-5 text-muted transition-transform" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <ol id="personal-projects" class="list-num mt-8 ml-6 space-y-14"></ol>
+        </details>
+      </section>
+
+      <div class="h-24 sm:h-28"></div>
+
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  // Keep professional work and personal experiments in separate collapsible lists.
+  (function groupProjects() {
+    var personalList = document.getElementById('personal-projects');
+    if (!personalList) return;
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-project-kind="personal"]'),
+      function (project) { personalList.appendChild(project); }
+    );
+  })();
+
+  // ── Media project yang filenya belum ada di disk dibuang dari DOM ──
+  // '.js-shot' menempel langsung di elemen img/video, bukan di elemen pembungkus.
+  // Cek .complete hanya berlaku untuk img; elemen video tidak punya properti itu,
+  // jadi untuk video pengguguran mengandalkan event 'error' saja.
+  function dropShot(el) {
+    // Video dibungkus .shot-frame (pembawa border) — buang pembungkusnya sekalian
+    // supaya tidak menyisakan kotak berbingkai yang kosong.
+    var frame = el.closest('.shot-frame');
+    (frame || el).remove();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.js-shot'), function (el) {
+    el.addEventListener('error', function () { dropShot(el); });
+    if (el.complete && el.naturalWidth === 0) dropShot(el);
+  });
+})();
+</script>
+
+<!-- ── Preview 3D (three.js, di-vendor lokal) ──────────────────────────────────
+     Sengaja tanpa OrbitControls: begitu kontrol dipasang, three.js menangkap event
+     wheel di atas canvas dan halaman berhenti bisa di-scroll saat kursor lewat situ.
+     Tanpa kontrol, canvas-nya inert — model cuma berputar sendiri.
+     Modul dimuat lewat importmap di <head>; tidak ada permintaan ke jaringan luar. -->
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+(function skullPreview() {
+  'use strict';
+
+  var host = document.getElementById('skull-3d');
+  if (!host) return;
+
+  function drop(reason) {
+    console.error('Preview 3D gagal:', reason);
+    var frame = host.closest('.shot-frame');
+    (frame || host).remove();
+  }
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  } catch (e) {
+    drop(e); // WebGL tidak tersedia
+    return;
+  }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.domElement.style.display = 'block';
+  renderer.domElement.style.width = '100%';
+  renderer.domElement.style.height = '100%';
+  renderer.domElement.style.cursor = 'grab';
+  // pan-y: usapan vertikal tetap men-scroll halaman di ponsel, usapan mendatar memutar model
+  renderer.domElement.style.touchAction = 'pan-y';
+  host.appendChild(renderer.domElement);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  // Dua grup bersarang, bukan satu: tilt memiringkan, pivot memutar di dalamnya.
+  // Kalau pitch dan yaw ditaruh di objek yang sama, sumbu putar otomatis ikut miring
+  // dan model tampak bergoyang begitu dimiringkan.
+  var tilt = new THREE.Group();
+  var pivot = new THREE.Group();
+  tilt.add(pivot);
+  scene.add(tilt);
+
+  // Model tidak membawa tekstur — hanya material abu-abu default — jadi pencahayaan
+  // dari tiga arah yang membuat bentuknya terbaca.
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x1a1a1a, 2.2));
+  var key = new THREE.DirectionalLight(0xffffff, 2.4);
+  key.position.set(2, 3, 4);
+  scene.add(key);
+  var rim = new THREE.DirectionalLight(0xffffff, 1.1);
+  rim.position.set(-3, 1, -2);
+  scene.add(rim);
+
+  function resize() {
+    var w = host.clientWidth, h = host.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false); // false: ukuran CSS diurus kelas Tailwind, bukan JS
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
+  else window.addEventListener('resize', resize);
+  resize();
+
+  var raf = null, prev = 0, onScreen = false, started = false;
+
+  // ── Putar dengan seret ──
+  // Ditulis manual, bukan OrbitControls: yang dibutuhkan cuma rotasi. OrbitControls
+  // sekalian membawa zoom lewat event 'wheel', dan itu yang dulu merebut scroll halaman.
+  // Di sini tidak ada listener 'wheel' sama sekali, jadi scroll tetap milik halaman.
+  var dragging = false, lastX = 0, lastY = 0;
+  var PITCH_MAX = 0.6; // radian, supaya model tidak bisa dijungkirkan sampai terbalik
+
+  renderer.domElement.addEventListener('pointerdown', function (e) {
+    dragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    renderer.domElement.setPointerCapture(e.pointerId);
+    renderer.domElement.style.cursor = 'grabbing';
+  });
+
+  renderer.domElement.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    pivot.rotation.y += (e.clientX - lastX) * 0.008;
+    tilt.rotation.x = Math.max(-PITCH_MAX, Math.min(PITCH_MAX,
+      tilt.rotation.x + (e.clientY - lastY) * 0.008));
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    if (e && e.pointerId !== undefined) {
+      try { renderer.domElement.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    renderer.domElement.style.cursor = 'grab';
+  }
+  renderer.domElement.addEventListener('pointerup', endDrag);
+  renderer.domElement.addEventListener('pointercancel', endDrag);
+
+  function frame(t) {
+    raf = requestAnimationFrame(frame);
+    if (!dragging) pivot.rotation.y += (prev ? (t - prev) / 1000 : 0) * 0.35;
+    prev = t;
+    renderer.render(scene, camera);
+  }
+  function play() { if (raf === null) { prev = 0; raf = requestAnimationFrame(frame); } }
+  function pause() { if (raf !== null) { cancelAnimationFrame(raf); raf = null; } }
+
+  function load() {
+    started = true;
+    new GLTFLoader().load('assets/projects/skull.glb', function (gltf) {
+      var model = gltf.scene;
+      var box = new THREE.Box3().setFromObject(model);
+      var span = box.getSize(new THREE.Vector3()).length();
+      model.position.sub(box.getCenter(new THREE.Vector3())); // titik putar di tengah objek
+      pivot.add(model);
+
+      // Pengali jarak kamera = besar model di dalam bingkai; makin besar, makin kecil tampilannya
+      camera.position.set(0, 0, span * 0.88);
+      camera.near = span / 100;
+      camera.far = span * 10;
+      camera.updateProjectionMatrix();
+
+      if (onScreen) play();
+    }, undefined, drop);
+  }
+
+  // File .glb 6 MB baru diunduh saat blok ini mendekati layar, dan animasi berhenti
+  // begitu keluar layar supaya tidak membakar baterai di latar belakang.
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      if (!onScreen) { pause(); return; }
+      if (!started) load();
+      play();
+    }, { rootMargin: '200px' }).observe(host);
+  } else {
+    onScreen = true;
+    load();
+  }
+})();
+</script>
+</body>
+</html>
