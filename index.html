@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-<script src="https://cdn.tailwindcss.com"></script>
+<link href="./assets/css/styles.css" rel="stylesheet" />
 <!-- three.js di-vendor ke assets/vendor/ supaya preview 3D tetap jalan tanpa internet.
      Importmap ini harus berada sebelum module script mana pun yang memakai specifier di bawah. -->
 <script type="importmap">
@@ -18,16 +18,6 @@
     "three/addons/": "./assets/vendor/three/jsm/"
   }
 }
-</script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: { sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'] },
-        colors: { ink: '#0a0a0a', paper: '#e7e7e7', muted: '#8a8a8a' },
-      },
-    },
-  };
 </script>
 <style>
   html { scroll-behavior: smooth; }
@@ -60,16 +50,20 @@
 
       <!-- ══════════════════ ABOUT ══════════════════ -->
       <section id="about" class="pt-16 sm:pt-24 lg:pt-28">
-        <h1 class="text-xl sm:text-2xl font-bold tracking-tight">@anggaferdani</h1>
+        <h1 class="inline-block bg-[linear-gradient(to_right,#ec4899,#3b82f6,#a855f7,#22c55e)] bg-clip-text py-2 text-4xl font-bold leading-[1.2] tracking-tight text-transparent sm:text-6xl">@anggaferdani</h1>
         <p class="mt-6 max-w-[62ch] text-lg sm:text-xl leading-relaxed">
           I am <strong class="font-bold">Angga Ferdani</strong>, a Full Stack Web Developer experienced in building
           end-to-end web applications, from frontend and backend development to databases and deployment. I am
           passionate about technology and digital product development, and I continuously improve my skills by
           exploring new technologies and approaches.
         </p>
+      </section>
 
-        <!-- Contact -->
-        <ul id="contact" class="mt-8 max-w-[52ch] space-y-1 text-lg sm:text-xl leading-relaxed">
+      <!-- ══════════════════ CONTACT ══════════════════ -->
+      <section id="contact" class="pt-20 sm:pt-28">
+        <h2 class="text-xl font-bold tracking-tight sm:text-2xl">Contact</h2>
+
+        <ul class="mt-6 max-w-[52ch] space-y-1 text-lg sm:text-xl leading-relaxed">
           <li><a class="link" href="https://wa.me/6281290573256" target="_blank" rel="noopener">+62 81290573256</a></li>
           <li><a class="link" href="mailto:ferdaniang@gmail.com">ferdaniang@gmail.com</a></li>
           <li><a class="link" href="https://linkedin.com/in/anggaferdani" target="_blank" rel="noopener">linkedin.com/in/anggaferdani</a></li>
@@ -87,21 +81,49 @@
           <li class="pl-2">
             <p class="text-lg sm:text-xl font-bold leading-snug">Full Stack Web Developer — Full Time</p>
             <p class="mt-1 text-base sm:text-lg text-muted">Mar 2023 – Present</p>
-            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
-              Develop end-to-end web applications and digital systems across frontend, backend, databases, and
-              deployment, including integrations with APIs, third-party services, and IoT devices. Experienced in
-              optimizing large-scale data management through database indexing and query performance improvements.
-            </p>
+            <ul class="mt-2 max-w-[58ch] list-disc space-y-2 pl-5 text-lg sm:text-xl leading-relaxed">
+              <li>Developed end-to-end web applications across frontend, backend, databases, and deployment.</li>
+              <li>Built real-time systems for live auctions, monitoring dashboards, and data synchronization.</li>
+              <li>Integrated APIs, third-party services, payment gateways, shipping services, and IoT devices.</li>
+              <li>Optimized database performance through indexing and query optimization for large-scale data processing.</li>
+              <li>Developed offline-capable applications with real-time data synchronization.</li>
+              <li>Implemented location-based, interactive map, and QR code features for operational and event management systems.</li>
+              <li>Handled application deployment, maintenance, bug fixing, and performance optimization in production environments.</li>
+            </ul>
           </li>
           <li class="pl-2">
             <p class="text-lg sm:text-xl font-bold leading-snug">Web Developer — Internship</p>
             <p class="mt-1 text-base sm:text-lg text-muted">Sep 2022 – Mar 2023</p>
-            <p class="mt-2 max-w-[58ch] text-lg sm:text-xl leading-relaxed">
-              Contributed to web application development across frontend, backend, and deployment, while also
-              handling bug fixes and application maintenance.
-            </p>
+            <ul class="mt-2 max-w-[58ch] list-disc space-y-2 pl-5 text-lg sm:text-xl leading-relaxed">
+              <li>Contributed to frontend and backend development of web applications.</li>
+              <li>Handled application deployment, bug fixing, and maintenance.</li>
+            </ul>
           </li>
         </ol>
+      </section>
+
+      <!-- ══════════════════ SKILLS ══════════════════ -->
+      <section id="skills" class="pt-20 sm:pt-28">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Skills</h2>
+
+        <ul class="mt-6 max-w-[58ch] list-disc space-y-2 pl-5 text-lg sm:text-xl leading-relaxed">
+          <li><span class="font-bold">Frontend:</span> React.js, Next.js, JavaScript, Tailwind CSS, Bootstrap CSS</li>
+          <li><span class="font-bold">Backend:</span> Laravel, PHP, Python, REST API, WebSocket</li>
+          <li><span class="font-bold">Database:</span> PostgreSQL, MySQL</li>
+          <li><span class="font-bold">Tools &amp; Workflow:</span> Git, Docker, Claude Code, Codex</li>
+          <li><span class="font-bold">Other:</span> UI/UX Design, 3D Modeling</li>
+          <li><span class="font-bold">AI-Assisted Development:</span> Claude Code, Codex</li>
+        </ul>
+      </section>
+
+      <!-- ══════════════════ LANGUAGES ══════════════════ -->
+      <section id="languages" class="pt-20 sm:pt-28">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Languages</h2>
+
+        <ul class="mt-6 max-w-[58ch] list-disc space-y-2 pl-5 text-lg sm:text-xl leading-relaxed">
+          <li><span class="font-bold">Indonesian</span> — Native</li>
+          <li><span class="font-bold">English</span> — Intermediate</li>
+        </ul>
       </section>
 
       <!-- ══════════════════ PROJECTS ══════════════════ -->

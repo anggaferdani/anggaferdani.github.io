@@ -6,16 +6,26 @@ Catatan bahasa: copy halaman dan komentar kode ditulis dalam bahasa Indonesia. I
 
 ## Bentuk proyek
 
-Situs portofolio statis satu halaman untuk Angga Ferdani. **Seluruh aplikasi ada di [index.html](index.html)** — markup, konfigurasi Tailwind, CSS custom, dan semua JavaScript berada dalam satu file. Tidak ada `package.json`, build step, dependency lokal, linter, maupun test.
+Situs portofolio statis satu halaman untuk Angga Ferdani. Markup, CSS custom, dan semua JavaScript berada di [index.html](index.html). Utility CSS dibangun secara lokal dengan Tailwind CLI dan hasil produksinya disimpan di `assets/css/styles.css` agar situs tetap dapat disajikan langsung sebagai situs statis.
 
 ```
 index.html            seluruh situs (markup + <style> + <script>)
+src/tailwind.css      entry point Tailwind CSS
+tailwind.config.js    konfigurasi tema dan pemindaian class
+assets/css/styles.css CSS produksi hasil build (wajib di-commit)
 assets/projects/      screenshot project: quiz-1.jpg … quiz-6.jpg
 ```
 
 ## Menjalankan
 
-Tidak ada build. Buka file-nya langsung:
+Pasang dependency dan build CSS setelah mengubah class Tailwind:
+
+```powershell
+npm install
+npm run build
+```
+
+Setelah CSS dibangun, buka file-nya langsung:
 
 ```powershell
 start index.html
@@ -35,12 +45,12 @@ node -e "const h=require('fs').readFileSync('index.html','utf8');[...h.matchAll(
 
 ## Arsitektur
 
-### Tailwind lewat CDN (runtime, bukan build)
+### Tailwind CLI (build-time)
 
-`<script src="https://cdn.tailwindcss.com">` mengompilasi class di browser dan mengamati perubahan DOM, sehingga class yang dibuat JavaScript (tombol tahun, sel grafik) tetap dapat style. Konsekuensinya:
+Tailwind memindai `index.html` dan menghasilkan `assets/css/styles.css` lewat `npm run build`. File hasil build wajib ikut di-commit supaya GitHub Pages tidak memerlukan Node.js.
 
-- Token tema custom (`ink`, `paper`, `muted`) didefinisikan di `tailwind.config` inline di [index.html:13-20](index.html#L13-L20), bukan di file config terpisah.
-- Kalau suatu saat pindah ke Tailwind hasil build, class dinamis di JS (`BTN_ON`/`BTN_OFF`, `aspect-square w-full rounded-[2px]`) **tidak akan ter-generate** tanpa safelist.
+- Token tema custom (`ink`, `paper`, `muted`) dan font sans didefinisikan di `tailwind.config.js`.
+- Class yang digunakan JavaScript harus tetap ditulis sebagai string lengkap di `index.html` agar terdeteksi pemindai Tailwind. Kalau class dibentuk dari potongan string, tambahkan ke `safelist` di konfigurasi.
 
 ### Kontrak layout
 
